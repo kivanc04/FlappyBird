@@ -1,42 +1,53 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.UIElements;
-using static UnityEngine.ParticleSystem;
 
-public class PipeSpawnerScript : MonoBehaviour
-{
-
-    public GameObject pipe;
+public class PipeSpawnerScript : MonoBehaviour {
+    public Camera camera;
+    public float pipeWidth = .5f;
     public float spawnRate = 2.0f;
+    public float moveSpeed = 5f;
+    
     private float timer = 0;
     public float height;
+    private float _screenEdge;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        var aspectRatio = Screen.width / Screen.height; 
-        
+    private List<GameObject> pipesInUse = new();
+    
+    void Start() {
+        var aspectRatio = Screen.width / (float)Screen.height;
+        _screenEdge = camera.orthographicSize * aspectRatio + pipeWidth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate)
-        {
-            timer = timer + Time.deltaTime;
-        }
-        else
-        {
-            //Instantiate(pipe, new Vector3(50, Random.RandomRange(-height, height), 17.7f), transform.rotation);
-
-            GameObject pipe = ObjectPoolScript.instance.GetPooledObject();
-            if (pipe != null) {
-                pipe.transform.position = new Vector3(44, Random.RandomRange(-height, height), 17.7f);
-                pipe.SetActive(true);
-                timer = 0; 
+        for (int i = 0; i < pipesInUse.Count; i++) {
+            pipesInUse[i].transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            if (pipesInUse[i].transform.position.x < -_screenEdge) {
+                DespawnPipe(pipesInUse[i]);
             }
         }
+        
+        if (timer < spawnRate)
+        {
+            timer += Time.deltaTime;
+        }
+        else {
+            SpawnPipe();
+            timer = 0;
+        }
+    }
+
+    private void DespawnPipe(GameObject pipe) {
+        pipesInUse.Remove(pipe);
+        ObjectPoolScript.instance.ReleaseObjectPool(pipe);
+    }
+
+    private void SpawnPipe() {
+        var pipe = ObjectPoolScript.instance.GetPooledObject();
+        if (pipe != null) {
+            pipe.transform.position = new Vector3(_screenEdge, Random.RandomRange(-height, height), 0);
+            pipe.SetActive(true);
+        }
+        pipesInUse.Add(pipe);
     }
 }

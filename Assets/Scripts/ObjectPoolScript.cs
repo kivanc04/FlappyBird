@@ -1,16 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.SceneManagement;
-using static UnityEditor.MaterialProperty;
 
 public class ObjectPoolScript : MonoBehaviour
 {
 
     public static ObjectPoolScript instance;
-    public List<GameObject> pooledObjects = new List<GameObject>();
-    public int amountToPool = 10;
+    public List<GameObject> pooledObjects = new();
     [SerializeField] public GameObject pipePrefab;
     private float timer = 0;
     int index = 0;
@@ -24,36 +19,26 @@ public class ObjectPoolScript : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        for (int i = 0; i < amountToPool; i++)
-        {
-            GameObject obj = Instantiate(pipePrefab);
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
-        }
+    private GameObject CreateObject() {
+        var obj = Instantiate(pipePrefab);
+        pooledObjects.Add(obj);
+        obj.SetActive(false);
+        return obj;
     }
 
 
     public GameObject GetPooledObject()
     {
-        var item = pooledObjects[index % pooledObjects.Count];
-
-        index++;
-        return item;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.gameObject.SetActive(false);
-    }
-    public void ReleaseObjectPool(GameObject gameObject)
-    {
-        if (gameObject.transform.position.x < -39.1)
-        {
-            gameObject.SetActive(false);
-            pooledObjects.Add(gameObject);
+        for (int i = 0; i < pooledObjects.Count; i++) {
+            if (pooledObjects[i].activeInHierarchy) continue;
+            return pooledObjects[i];
         }
+        return CreateObject();
+    }
+    
+    public void ReleaseObjectPool(GameObject go)
+    {
+        go.SetActive(false);
     }
 
 
