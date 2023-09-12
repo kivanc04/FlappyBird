@@ -7,7 +7,7 @@ public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
     public float flapStrength;
-    public bool isDead;
+    public bool isDead; 
 
     public GameManager managerGame;
     public GameObject DeathScreen;
@@ -43,6 +43,6 @@ public class BirdScript : MonoBehaviour
             Time.timeScale = 0;
             DeathScreen.SetActive(true);
             
-        }
+        } 
     }
 }

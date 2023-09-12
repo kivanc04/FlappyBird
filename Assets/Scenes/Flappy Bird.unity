@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -983,7 +983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObjects: []
-  amountToPool: 10
   pipePrefab: {fileID: 1968928718953267335, guid: 2823c9803f7784611910600506a50e0b, type: 3}
 --- !u!4 &1648523505
 Transform:
@@ -1161,8 +1160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c24c3dfa02a848149896bb3e686f9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipe: {fileID: 1968928718953267335, guid: 2823c9803f7784611910600506a50e0b, type: 3}
+  camera: {fileID: 733107380}
+  pipeWidth: 0.5
   spawnRate: 1
+  moveSpeed: 5
   height: 2.5
 --- !u!4 &1953836879
 Transform:
