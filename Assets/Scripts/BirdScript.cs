@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
     public float flapStrength;
-    public bool isDead; 
+    public bool isDead;
+    public float gravity;
 
     public GameManager managerGame;
     public GameObject DeathScreen;
+    public GameObject MenuScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
+        
     }
 
     // Update is called once per frame
@@ -24,9 +28,13 @@ public class BirdScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) == true)
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
-        }
-
+        }/*
+        else
+        {
+            myRigidbody.velocity += Vector2.down * gravity * Time.deltaTime;
+        }*/
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "ScoreArea")
