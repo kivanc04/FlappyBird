@@ -13,7 +13,8 @@ public class BirdScript : MonoBehaviour
 
     public GameManager managerGame;
     public GameObject DeathScreen;
-    public GameObject MenuScreen;
+    //public GameObject MenuScreen;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +26,10 @@ public class BirdScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true)
+            if (Input.GetKeyDown(KeyCode.Space) == true)
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
-        }/*
-        else
-        {
-            myRigidbody.velocity += Vector2.down * gravity * Time.deltaTime;
-        }*/
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

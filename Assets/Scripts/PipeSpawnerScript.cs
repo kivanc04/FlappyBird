@@ -11,7 +11,6 @@ public class PipeSpawnerScript : MonoBehaviour {
     private float timer = 0;
     public float height;
     private float _screenEdge;
-
     private List<GameObject> pipesInUse = new();
     
     void Start() {
@@ -21,19 +20,22 @@ public class PipeSpawnerScript : MonoBehaviour {
 
     void Update()
     {
-        if (moveSpeed < MaxSpeed)
-        {
-            moveSpeed += 0.1f * Time.deltaTime;
-        }
-        for (int i = 0; i < pipesInUse.Count; i++) {
-            pipesInUse[i].transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            if (pipesInUse[i].transform.position.x < -_screenEdge) {
-                DespawnPipe(pipesInUse[i]);
-            }
-        }
         
+            if (moveSpeed < MaxSpeed)
+            {
+                moveSpeed += 0.1f * Time.deltaTime;
+            }
+            for (int i = 0; i < pipesInUse.Count; i++)
+            {
+                pipesInUse[i].transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                if (pipesInUse[i].transform.position.x < -_screenEdge)
+                {
+                    DespawnPipe(pipesInUse[i]);
+                }
+            }
 
-        if (timer < spawnRate)
+
+            if (timer < spawnRate)
             {
                 timer += Time.deltaTime;
             }
@@ -45,12 +47,12 @@ public class PipeSpawnerScript : MonoBehaviour {
         
     }
     
-    private void DespawnPipe(GameObject pipe) {
+    public void DespawnPipe(GameObject pipe) {
         pipesInUse.Remove(pipe);
         ObjectPoolScript.instance.ReleaseObjectPool(pipe);
     }
 
-    private void SpawnPipe() {
+    public void SpawnPipe() {
         var pipe = ObjectPoolScript.instance.GetPooledObject();
         if (pipe != null) {
             pipe.transform.position = new Vector3(_screenEdge, Random.RandomRange(-height, height), 0);
