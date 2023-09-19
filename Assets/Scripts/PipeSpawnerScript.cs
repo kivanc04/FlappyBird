@@ -11,7 +11,7 @@ public class PipeSpawnerScript : MonoBehaviour {
     private float timer = 0;
     public float height;
     private float _screenEdge;
-    private List<GameObject> pipesInUse = new();
+    public List<GameObject> pipesInUse = new();
     
     void Start() {
         var aspectRatio = Screen.width / (float)Screen.height;

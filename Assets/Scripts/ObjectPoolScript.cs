@@ -7,8 +7,8 @@ public class ObjectPoolScript : MonoBehaviour
     public static ObjectPoolScript instance;
     public List<GameObject> pooledObjects = new();
     [SerializeField] public GameObject pipePrefab;
-    private float timer = 0;
-    int index = 0;
+    //private float timer = 0;
+    //int index = 0;
 
 
     private void Awake()
