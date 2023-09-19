@@ -49,10 +49,6 @@ public class GameManager : MonoBehaviour
         {
             scores[i].text = score.ToString();
         }
-        
-
-        playButton.onClick.AddListener(OnPlayButtonClick);
-        rankingButton.onClick.AddListener(ShowPanel);
 
         play.enabled = false;
         MenuScreen.SetActive(true);
@@ -62,17 +58,6 @@ public class GameManager : MonoBehaviour
 
         // Update the UI for last 10 scores
         UpdateLastTenScoresText();
-
-        if (NightBackground&&Background.activeInHierarchy)
-        {
-            NightBackground.SetActive(false);
-            mytext.enabled = true;
-        }
-    }
-
-    void Update()
-    {
-        // Your Update logic here
     }
 
     public void updateScore()
