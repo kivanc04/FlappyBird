@@ -12,10 +12,21 @@ public class PipeSpawnerScript : MonoBehaviour {
     public float height;
     private float _screenEdge;
     public List<GameObject> pipesInUse = new();
-    
-    void Start() {
+    public bool gameStarted = false;
+    public BirdScript birdy;
+
+    void Start()
+    {
         var aspectRatio = Screen.width / (float)Screen.height;
         _screenEdge = camera.orthographicSize * aspectRatio + pipeWidth;
+
+        if (birdy.gameObject.transform.position.y >_screenEdge)
+            {
+            birdy.isDead = true;
+            Time.timeScale = 0;
+            birdy.DeathScreen.SetActive(true);
+        }
+        
     }
 
     void Update()

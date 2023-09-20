@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -88.50001}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -88.50001}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261677746
 MonoBehaviour:
@@ -296,7 +296,7 @@ MonoBehaviour:
   play: {fileID: 1953836878}
   rankingButton: {fileID: 1174719204}
   playButton: {fileID: 1605013163}
-  TurnBack: {fileID: 0}
+  TurnBack: {fileID: 1901113917}
   birdy: {fileID: 1646311827}
   scores:
   - {fileID: 261677746}
@@ -393,8 +393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -442.50003}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -442.50003}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351897981
 MonoBehaviour:
@@ -604,8 +604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -265.50003}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -265.50003}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &392549979
 MonoBehaviour:
@@ -995,8 +995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -1681.5001}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -1681.5001}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711285005
 MonoBehaviour:
@@ -1298,8 +1298,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -1327.5001}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -1327.5001}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &938590873
 MonoBehaviour:
@@ -1595,8 +1595,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -796.50006}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -796.50006}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140548568
 MonoBehaviour:
@@ -2531,9 +2531,10 @@ MonoBehaviour:
   myRigidbody: {fileID: 1646311825}
   flapStrength: 2
   isDead: 0
-  gravity: 4.5
   managerGame: {fileID: 261722074}
   DeathScreen: {fileID: 1200865103}
+  play: {fileID: 1953836878}
+  gameStarted: 0
 --- !u!212 &1646311828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2725,8 +2726,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -973.50006}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -973.50006}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649162881
 MonoBehaviour:
@@ -2860,8 +2861,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -1150.5001}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -1150.5001}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650559547
 MonoBehaviour:
@@ -3280,6 +3281,8 @@ MonoBehaviour:
   MaxSpeed: 2
   height: 0.75
   pipesInUse: []
+  gameStarted: 0
+  birdy: {fileID: 1646311827}
 --- !u!4 &1953836879
 Transform:
   m_ObjectHideFlags: 0
@@ -3330,8 +3333,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -619.50006}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -619.50006}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049434694
 MonoBehaviour:
@@ -3465,8 +3468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -1504.5001}
-  m_SizeDelta: {x: 1080, y: 177.00002}
+  m_AnchoredPosition: {x: 540.8451, y: -1504.5001}
+  m_SizeDelta: {x: 1081.6902, y: 177.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2076924837
 MonoBehaviour:

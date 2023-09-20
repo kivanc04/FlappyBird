@@ -79,6 +79,11 @@ public class GameManager : MonoBehaviour
         {
             TurnBack.enabled = false;
         }
+        else
+        {
+            
+            SceneManager.LoadScene(0);
+        }
     }
 
     void UpdateHighestScoreText()
@@ -96,6 +101,7 @@ public class GameManager : MonoBehaviour
         if (!gameStarted)
         {
             MenuScreen.SetActive(false);
+            birdy.gameObject.SetActive(true);
             PanelScreen.SetActive(false);
             play.enabled = true;
             gameStarted = true;
@@ -136,28 +142,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ActivatePanelScreen()
-    {
-        UIScreen.SetActive(false);  // Deactivate the UI screen
-        PanelScreen.SetActive(true); // Activate the panel screen
-    }
-
-    public void TabButton()
-    {
-        for (int i = 0; i < scores.Length; i++)
-        {
-            scores[i].text = score.ToString();
-
-            if (!gameStarted)
-            {
-                MenuScreen.SetActive(false);
-                PanelScreen.SetActive(true);
-                Platform.SetActive(false);
-                NightBackground.SetActive(true);
-            }
-        }
-    }
-
     public void ShowPanel()
     {
         if (currentUIScreen != null)
@@ -179,7 +163,7 @@ public class GameManager : MonoBehaviour
             Panel.SetActive(true);
             Background.SetActive(false);
             MenuScreen.SetActive(false);
-            //birdy.gameObject.SetActive(false);
+            birdy.gameObject.SetActive(false);
             ScoreText.gameObject.SetActive(false);
             gameStarted = true;
         }

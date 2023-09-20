@@ -9,28 +9,44 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public float flapStrength;
     public bool isDead;
-    public float gravity;
 
     public GameManager managerGame;
     public GameObject DeathScreen;
     //public GameObject MenuScreen;
-    
+    public PipeSpawnerScript play;
+    public bool gameStarted = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         
+
     }
 
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.Space) == true)
+        if (managerGame.MenuScreen.activeInHierarchy)
         {
-            myRigidbody.velocity = Vector2.up * flapStrength;
+            if (Input.GetKeyDown(KeyCode.Space) == true)
+            {
+
+                myRigidbody.velocity = Vector2.zero;
+            }
+        }
+        if (!managerGame.MenuScreen.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) == true)
+            {
+
+                myRigidbody.velocity = Vector2.up * flapStrength;
+            }
         }
     }
+                
+    
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
